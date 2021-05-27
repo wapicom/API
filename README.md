@@ -1,4 +1,4 @@
-# **Warehouse API**
+# **The API**
 
 Warehouse API is a service that provides easy and understandable working with warehouses and courier services throughout the Europe.
 
