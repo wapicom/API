@@ -199,7 +199,6 @@ _Any status except 200 OK should be considered as an error._
 
 ### Possible statuses:
 - `Pending` - the status indicates that the outbound order has been just created and still not passed to the Partner;
-- `OnHold` - the status may appear, when delivery date is far in the future and the order will stay on hold on our side for some days, to prevent delivery earlier, than it is expected;
 - `Error` - the status appears when during the order's processing happens a technical error. Status may appear only before the order has been sent for delivery;
 - `WaybillNotCreated` - the status means that there are some questions regarding the delivery address. This is the temporary status, which after solving all address related questions will be changed to the status InTransit;
 - `AssignedToPartner` - the status means that the order has been passed to our partners in the destination country for processing;
@@ -213,11 +212,11 @@ _Any status except 200 OK should be considered as an error._
 - `Lost` - due to some reasons, partners may report this status;
 - `Damaged` - the status may occur if the parcel has been damaged on the way to the customer.
 ###Possible trouble statuses (appear when order has some problems with delivery):
-- `IsAbsent1` - indicates, that a recipient was not at the delivery address during first delivery attempt;
-- `IsAbsent` - indicates, that a recipient was not at the delivery address during following delivery attempts;
-- `CannotLocateConsignee1` - indicates, that a courier is not able to find where to deliver the package during first delivery attempt;
-- `CannotLocateConsignee` - indicates, that a courier is not able to find where to deliver the package during following delivery attempts;
-- `IsRefused` - indicates, that a recipient refused to receive the package (pay for it).
+- `IsAbsent1` - indicates that a recipient was not at the delivery address during first delivery attempt;
+- `IsAbsent` - indicates that a recipient was not at the delivery address during following delivery attempts;
+- `CannotLocateConsignee1` - indicates that a courier is not able to find where to deliver the package during first delivery attempt;
+- `CannotLocateConsignee` - indicates that a courier is not able to find where to deliver the package during following delivery attempts;
+- `IsRefused` - indicates that a recipient refused to receive the package (pay for it).
 
  **Important!**
 
@@ -312,7 +311,7 @@ To change order's data you should send the request to the:
 
 > `POST /outbounds/UpdateOrder`
 
-Can be used the same request as is used for creating a new order, but additionally the `TrackingNumber` field should be added with the value (WH tracking number) of the particular order, that you want to change.
+Can be used the same request as is used for creating a new order, but additionally the `TrackingNumber` field should be added with the value (WH tracking number) of the particular order that you want to change.
 
 **Headers:**
 ```text
@@ -326,33 +325,37 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 {  
     "trackingNumber": "WH00000012345",  // Enter here the tracking number of the order you want to change
     "orderNumber":"5",
-    "product":{  
-        "name":"Product Name",
-        "quantity":2,
-        "price":41.5
+    "product":
+    {  
+	    "name":"Product Name",
+	    "quantity":2,
+	    "price":41.5
     },
-    "additionalProducts" : [],
+    "additionalProducts" :
+    [
+    ],
     "cashOnDelivery": 85.00,
-    "receiver":{  
-        "firstName":"Test",
-        "lastName":"Receiver",
-        "phoneNumber":"123456789",
-        "emailAddress": "test@test.com",
-        "nationalID": "XXXXXXXXXX",
-        "houseNumber":"122",
-        "addressText":"Some street",
-        "addressAdditionalInfo":"apt. 35",
-        "city": "Venice",
-        "country":"IT",
-        "zipCode":"30123"
+    "receiver":
+    {  
+	    "firstName":"receiver name",
+	    "lastName":"receiver surname",
+	    "phoneNumber":"123456789",
+	    "emailAddress":"test@test.com",
+	    "nationalID":"XXXXXXXXXX",
+	    "houseNumber":"122",
+	    "addressText":"Some street",
+	    "addressAdditionalInfo":"apt. 35",
+	    "city":"Venice",
+	    "country":"IT",
+	    "zipCode":"30123"
     },
-    "comment": "some text (optional)"
+    "comment":"some text (optional)"
 }
 ```
 
  **Please Note:**
 
-Order can be changed only if it is in one of these statuses: `Pending`, `OnHold`, `Error`.
+Order can be changed only if it is in one of these statuses: `Pending`, `Error`.
 
 **Response:**
  
