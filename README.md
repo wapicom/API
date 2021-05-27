@@ -83,7 +83,8 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
     "ShippingFlatAmount":0.00,
     "TaxFlatAmount":3.98,
     "CurrencyForInvoice":"EUR",
-    "checkBeforeCOD":true
+    "checkBeforeCOD":true,
+    "pipelineId":"983584"
 }
 ```
  **Important!**
