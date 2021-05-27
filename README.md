@@ -38,42 +38,64 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 ```js 
 {  
     "orderNumber":"5", //Each order id should be unique
-    "product":{  
-        "name":"Product Name",
-        "quantity":2,
-        "price":41.5
+    "product":
+    {  
+	    "name":"Product Name",
+	    "quantity":2,
+	    "price":0.0,
+	    "unitPriceForInvoice": "54.90"
     },
-    "additionalProducts" : [
+    "additionalProducts":
+    [
         {
-            "name":"Product Name-2",
-            "quantity":2,
-            "price":41.5
-        }
+		"name":"Product Name-2",
+		"quantity":2,
+		"price":0.0, 
+		"UnitPriceForInvoice":27.72
+        },
+	{
+		"name":"296041002",
+		"quantity":1,
+		"price":0.0, 
+		"UnitPriceForInvoice":33.12
+	}
     ],
-    "cashOnDelivery": 85.00,
-    "receiver":{  
-        "firstName":"Test",
-        "lastName":"Receiver",
-        "phoneNumber":"123456789",
-        "emailAddress": "test@test.com",
-        "nationalID": "XXXXXXXXXX",
-        "houseNumber":"122",
-        "addressText":"Some street",
-        "addressAdditionalInfo":"apt. 35",
-        "city": "Venice",
-        "country":"IT",
-        "zipCode":"30123"
+    "cashOnDelivery":85.00,
+    "receiver":
+    {  
+	    "firstName":"receiver name",
+	    "lastName":"receiver surname",
+	    "phoneNumber":"123456789",
+	    "emailAddress":"test@test.com",
+	    "nationalID":"XXXXXXXXXX",
+	    "houseNumber":"122",
+	    "addressText":"Some street",
+	    "addressAdditionalInfo":"apt. 35",
+	    "city":"Venice",
+	    "country":"IT",
+	    "zipCode":"30123"
     },
-    "comment": "some text (optional)"
+    "comment":"some text",
+    "whCode":"ITWH6",
+    "whCodeAsMandatory":"true",
+    "ReasonForExport":"sale",
+    "DiscountFlatAmount":0.00,
+    "ShippingFlatAmount":0.00,
+    "TaxFlatAmount":3.98,
+    "CurrencyForInvoice":"EUR",
+    "checkBeforeCOD":true
 }
 ```
  **Important!**
 
 - For prepaid orders fill following fields `product.price`, `cashOnDelivery` and `additionalProducts.price` with `0` 
-- All fields are required, except `additionalProducts,` `receiver.lastName,` `receiver.emailAddress,` `receiver.houseNumber,` `receiver.nationalID`
+- All fields are required, except `additionalProducts`, `receiver.lastName`, `receiver.emailAddress`, `receiver.houseNumber`, `receiver.nationalID`, `whCode`, `whCodeAsMandatory`, `ReasonForExport`, `DiscountFlatAmount`, `ShippingFlatAmount`, `TaxFlatAmount`, `CurrencyForInvoice`, `checkBeforeCOD`, `pipelineId`.
 - `cashOnDelivery` field is added later with purpose to override calculations of COD, based on `price` field of products. That is, when COD amount is specified in `cashOnDelivery` field and **is greater then zero**, amounts in `price` are ignored.   
-- `additionalProducts` field is optional. When you need to send more than one product, First product you need to pass via `product` node and other products in `additionalProducts` array.
+- `additionalProducts` field is optional. When you need to send more than one product, first product you need to pass via `product` node and other products in `additionalProducts` array.
 - `nationalID` field is used to be included in invoices, which are required in some cases (e.g. sending orders to Spanish islands).
+- `whCode` field is optional. If this parameter is passed, then the system will try to send the order to this warehouse. But if there are no leftovers, then to the one where there is.
+- `whCodeAsMandatory` field is connected with `whCode` field. This parameter must be set to true if the order should be sent only from the warehouse specified in the `whCode` parameter. If `whCodeAsMandatory` = False, then the system will try to send an order from another warehouse if there is no item in the warehouse specified in `whCode`.
+- `checkBeforeCOD` field is optional and should be passed only for orders to Bulgaria. This parameter is passed when the package needs to be opened before the client will pay for it.
 
 **Response:**
  
