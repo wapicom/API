@@ -109,7 +109,7 @@ Status means that order has been created. In response you are getting the Tracki
 
 ```json
 {
-    "trackingNumber": "WH0000000024"
+    "trackingNumber":"WH0000000024"
 }
 ```
 
@@ -138,8 +138,8 @@ In the Create Order request now can be indicated the preferred Delivery Date and
 ```js
 {
    ...
-   "preferredDeliveryDate": "YYYY-MM-DD",
-   "preferredDeliveryDayPart": "morning" | "evening"
+   "preferredDeliveryDate":"YYYY-MM-DD",
+   "preferredDeliveryDayPart":"morning" | "evening"
    ...
 }
 ```
@@ -180,10 +180,10 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 {
     "statuses": [
         {
-            "trackingNumber": "WH0000000024",
-            "deliveryStatus": "Pending",
-            "deliveryStatusText": "Order is being processed",
-            "troubleStatus": "IsAbsent"
+            "trackingNumber":"WH0000000024",
+            "deliveryStatus":"Pending",
+            "deliveryStatusText":"Order is being processed",
+            "troubleStatus":"IsAbsent"
         }
     ]
 }
@@ -240,7 +240,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 ```
 **Body:**
 ```json 
-{"country":"Italy", "productName": "Demo Product-1"}
+{"country":"Italy", "productName":"Demo Product-1"}
 ```
 
 **Response:**
@@ -249,9 +249,9 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 
 ```json
 {
-    "country": "Italy",
-    "productName": "Demo Product-1",
-    "reminderQuantity": -398
+    "country":"Italy",
+    "productName":"Demo Product-1",
+    "reminderQuantity":-398
 }
 ```
 
@@ -300,9 +300,9 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 
 ```json
 {
-    "country": "Italy",
-    "warehouseName" : "ITWH1",
-    "productName": "Demo Product-1",
+    "country":"Italy",
+    "warehouseName" :"ITWH1",
+    "productName":"Demo Product-1",
     "remainingQuantity":0,
     "reservedQuantity":0,
     "availableQuantity":0, 
@@ -327,7 +327,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 **Body:**
 ```js
 {  
-    "trackingNumber": "WH00000012345",  // Enter here the tracking number of the order you want to change
+    "trackingNumber":"WH00000012345",  // Enter here the tracking number of the order you want to change
     "orderNumber":"5",
     "product":
     {  
@@ -338,7 +338,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
     "additionalProducts" :
     [
     ],
-    "cashOnDelivery": 85.00,
+    "cashOnDelivery":85.00,
     "receiver":
     {  
 	    "firstName":"receiver name",
