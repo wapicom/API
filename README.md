@@ -93,7 +93,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
  **Important!**
 
 - For prepaid orders fill following fields `product.price`, `cashOnDelivery` and `additionalProducts.price` with `0` 
-- All fields are required, except `additionalProducts`, `receiver.lastName`, `receiver.emailAddress`, `receiver.houseNumber`, `receiver.nationalID`, `whCode`, `whCodeAsMandatory`, `ReasonForExport`, `DiscountFlatAmount`, `ShippingFlatAmount`, `TaxFlatAmount`, `CurrencyForInvoice`, `checkBeforeCOD`, `pipelineId`.
+- All fields are required, except `additionalProducts`, `receiver.lastName`, `receiver.emailAddress`, `receiver.houseNumber`, `receiver.nationalID`, `whCode`, `whCodeAsMandatory`, `ReasonForExport`, `DiscountFlatAmount`, `ShippingFlatAmount`, `TaxFlatAmount`, `CurrencyForInvoice`, `checkBeforeCOD`.
 - `cashOnDelivery` field is added later with purpose to override calculations of COD, based on `price` field of products. That is, when COD amount is specified in `cashOnDelivery` field and **is greater then zero**, amounts in `price` are ignored.   
 - `additionalProducts` field is optional. When you need to send more than one product, first product you need to pass via `product` node and other products in `additionalProducts` array.
 - `nationalID` field is used to be included in invoices, which are required in some cases (e.g. sending orders to Spanish islands).
