@@ -14,6 +14,10 @@ API base URLs are:
 The endpoint is protected by the **authentication token**. The personalizes token is provided to each client via 
 `x-client-id` HTTP header. Production and test environments has different tokens and hash keys. 
 
+Also a login and password for the test and production environment required. They are different for test and production environments.
+
+Virtual products for test requests must be "Demo Product-1" and "Demo Product-2". Also it is important to indicate in the request the country of delivery "ES" or "IT". 
+
 
 ### Message signing
  For the message signing the HMAC-SHA1 is used
