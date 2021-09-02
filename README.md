@@ -398,3 +398,25 @@ If in the change request were sent the same data as order has had initially, you
 	"error": "The data you have provided brings no changes. Please check and try again!"
 }
 ```
+
+# Cancel An Order
+To cancel the order you should send the request to the:
+
+> `POST /outbounds/cancelOrder`
+
+You can only cancel an order if it is in the "Pending" status. The order is sent to the warehouse system 1 time in half an hour (at :00 and at :30). At this moment, the order status changes from "Pending" to "Assigned to partner". So, you need to keep in mind that there may not be enough time to cancel the order. Therefore, in situations where you know that a test order will need to be canceled, it is better to send it at time intervals far from :00 and :30.
+
+**Headers:**
+```text
+accept: application/json
+content-type: application/json
+x-client-id: <a guid, provided specially for you>
+x-signature: <a HMAC signature you get using `HMAC secret`, provided specially for you>
+```
+**Body:**
+```js
+{  
+    "trackingNumber":"WH0000XXXXXX",  // Enter here the tracking number of the order you want to cancel
+    "comment":"test order"
+}
+```
