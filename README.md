@@ -178,18 +178,22 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 
 ```json
 {
-    "statuses": [
-        {    
-	    "trackingNumber": "WH0000585618",
+{
+
+    "statuses": 
+    [
+        {
+            "trackingNumber": "WH0000000000",
             "deliveryStatus": "Delivered",
-            "deliveryStatusText": "[25.11.2021 10:30:42] Status: 'Delivered'; Comments: 'Parcel delivered, Recipient: W......I'; Location: 'POL, Poland'",
-            "troubleStatus": null,
-            "courierName": "DPD PL",
-            "courierSite": "https://tracktrace.dpd.com.pl/",
-            "courierTrackingNumber": "1000379788202U",
-            "courierTrackingSiteLink": "https://tracktrace.dpd.com.pl/parcelDetails?typ=1&p1=1000379788202U"
+            "deliveryStatusText": "[30.07.2021 12:37:00] Status: 'Delivered'; Comments: 'LA SPEDIZIONE E STATA CONSEGNATA'",
+            "troubleStatus": "CannotLocateConsignee",
+            "courierName": "SDA",
+            "courierSite": "https://www.sda.it",
+            "courierTrackingNumber": "282528I0000105433334",
+            "courierTrackingSiteLink": "https://www.sda.it/wps/portal/Servizi_online/dettaglio-spedizione?locale=it&tracing.letteraVettura=282528I0000105433334"
         }
     ]
+}
 }
 ```
 _Any status except 200 OK should be considered as an error._
