@@ -179,11 +179,15 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 ```json
 {
     "statuses": [
-        {
-            "trackingNumber":"WH0000000024",
-            "deliveryStatus":"Pending",
-            "deliveryStatusText":"Order is being processed",
-            "troubleStatus":"IsAbsent"
+        {    
+	    "trackingNumber": "WH0000585618",
+            "deliveryStatus": "Delivered",
+            "deliveryStatusText": "[25.11.2021 10:30:42] Status: 'Delivered'; Comments: 'Parcel delivered, Recipient: W......I'; Location: 'POL, Poland'",
+            "troubleStatus": null,
+            "courierName": "DPD PL",
+            "courierSite": "https://tracktrace.dpd.com.pl/",
+            "courierTrackingNumber": "1000379788202U",
+            "courierTrackingSiteLink": "https://tracktrace.dpd.com.pl/parcelDetails?typ=1&p1=1000379788202U"
         }
     ]
 }
