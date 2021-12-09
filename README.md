@@ -107,10 +107,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 - `whCode` field is optional. If this parameter is passed, then the system will try to send the order to this warehouse. But if there are no leftovers, then to the one where there is.
 - `whCodeAsMandatory` field is connected with `whCode` field. This parameter must be set to true if the order should be sent only from the warehouse specified in the `whCode` parameter. If `whCodeAsMandatory` = False, then the system will try to send an order from another warehouse if there is no item in the warehouse specified in `whCode`.
 - `checkBeforeCOD` field is optional and should be passed only for orders to Bulgaria. This parameter is passed when the package needs to be opened before the client will pay for it.
-- `attachments` field can take the following values:
-	CustomsInvoice - invoice to the customs zone
-	DeliveryNote - just a document describing what is contained in the order or and some additional instructions, for example, such as instructions for returning
-	Invoice - invoice for the buyer
+- `attachments` field can take the following values: CustomsInvoice - invoice to the customs zone; DeliveryNote - just a document describing what is contained in the order or and some additional instructions, for example, such as instructions for returning; Invoice - invoice for the buyer
 
 **Response:**
  
