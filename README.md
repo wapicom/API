@@ -157,6 +157,25 @@ In the Create Order request now can be indicated the preferred Delivery Date and
 
 - If in order there is `preferredDeliveryDate` indicated then the order will be sent to the partner not less than 2 days before that date, so that delivery does not happen before the correct date.
 
+
+# Order to Inpost packomat
+
+To indicate that the order should arrive at a specific packomat, the fields in the request should be specified as follows:
+```
+{
+...
+"isSelfCollect": true,
+"selfCollectPointName": "здесь код пакомата"
+...
+"receiver":
+    { 
+           ...
+          "addressText":"здесь адрес пакомата",
+           ...
+    }
+...
+}
+
  ##  Tracking orders
  
 To track the order you should know the tracking (WH) number of the order and should send the below mentioned API request:
