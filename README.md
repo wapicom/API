@@ -263,6 +263,122 @@ _Any status except 200 OK should be considered as an error._
 - Please note, that you should sign up request as you send it. That is, that payloads `{"TrackingNumbers":["12346126348721"]}` and `{"trackingNumbers": [ "12346126348721" ]}` will have different hash signatures.
 The same belongs to line endings and tab spaces in a payload.
 
+
+
+ ##  Get Detailed Order Status
+ 
+To track the order you should know the tracking (WH) number of the order and should send the below mentioned API request:
+
+> `POST /getDetailedOrderStatus`
+
+**Headers:**
+```text
+accept: application/json
+content-type: application/json
+x-client-id: <a guid, provided specially for you>
+x-signature: <a HMAC signature you get using `HMAC secret`, provided specially for you>
+```
+**Body:**
+```js
+{  
+    "trackingNumbers":[  
+        "WH0000000024",
+        ...
+    ]
+}
+```
+
+**Response:**
+
+ **200 OK**
+
+```json
+[
+    {
+        "statusHistory": [
+            {
+                "statusDate": "2022-05-02T05:56:52.05",
+                "statusName": "Pending",
+                "statusComment": null,
+                "troubleStatus": null
+            },
+            {
+                "statusDate": "2022-05-02T06:30:30.15",
+                "statusName": "AssignedToPartner",
+                "statusComment": null,
+                "troubleStatus": null
+            },
+            {
+                "statusDate": "2022-05-02T08:30:04",
+                "statusName": "AssignedToPartner",
+                "statusComment": "RECEIVED",
+                "troubleStatus": null
+            },
+            {
+                "statusDate": "2022-05-02T08:42:15",
+                "statusName": "AssignedToPartner",
+                "statusComment": "Ready for shipment",
+                "troubleStatus": null
+            },
+            {
+                "statusDate": "2022-05-03T01:28:00",
+                "statusName": "InTransit",
+                "statusComment": "Partita dal Centro Operativo SDA",
+                "troubleStatus": null
+            },
+            {
+                "statusDate": "2022-05-03T08:48:00",
+                "statusName": "InTransit",
+                "statusComment": "In consegna",
+                "troubleStatus": null
+            },
+            {
+                "statusDate": "2022-05-03T13:48:00",
+                "statusName": "InTransit",
+                "statusComment": "Mancata consegna per destinatario assente",
+                **"troubleStatus": "IsAbsent"**
+            },
+            {
+                "statusDate": "2022-05-03T20:30:00",
+                "statusName": "InTransit",
+                "statusComment": "In lavorazione",
+                "troubleStatus": null
+            },
+            {
+                "statusDate": "2022-05-04T13:18:00",
+                "statusName": "InTransit",
+                "statusComment": "Mancata consegna per destinatario assente",
+                "troubleStatus": "IsAbsent"
+            },
+            {
+                "statusDate": "2022-05-04T19:22:00",
+                "statusName": "InTransit",
+                "statusComment": "In lavorazione",
+                "troubleStatus": null
+            },
+            {
+                "statusDate": "2022-05-04T20:43:00",
+                "statusName": "InTransit",
+                "statusComment": "Disponibile per il ritiro presso il Centro Operativo SDA",
+                "troubleStatus": null
+            }
+        ],
+        "statusDate": null,
+        "trackingNumber": "WH0000653702",
+        "deliveryStatus": "InTransit",
+        "deliveryStatusText": "[04.05.2022 20:43:00] Status: 'InTransit'; Comments: 'Disponibile per il ritiro presso il Centro Operativo SDA'",
+        "troubleStatus": null,
+        "courierName": "SDA",
+        "courierSite": "https://www.sda.it",
+        "courierTrackingNumber": "383148H047484",
+        "courierTrackingSiteLink": "https://www.sda.it/wps/portal/Servizi_online/dettaglio-spedizione?locale=it&tracing.letteraVettura=383148H047484"
+    }
+]
+```
+
+The trouble status is tied to a specific status in the status history. This should make it possible to see both the status change or its repetition, and to calculate the delivery attempt.
+
+
 # Getting Product's Remained Amount
 This operation allows you to get the stock remainders of the concrete product, or on the selected warehouse, or country. 
 > `POST /stock/getProductRemainder`
