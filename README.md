@@ -336,7 +336,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
                 "statusDate": "2022-05-03T13:48:00",
                 "statusName": "InTransit",
                 "statusComment": "Mancata consegna per destinatario assente",
-                *"troubleStatus": "IsAbsent"*
+                "troubleStatus": "IsAbsent"
             },
             {
                 "statusDate": "2022-05-03T20:30:00",
