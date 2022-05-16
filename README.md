@@ -551,6 +551,63 @@ If in the change request were sent the same data as order has had initially, you
 }
 ```
 
+
+# Add a comment for the courier
+for sending a comment for the courier you should send the request to the:
+
+> `POST /courier/addComment `
+
+Depending on the integration with partners through which orders are sent, the parameters for sending a comment may differ
+
+**Headers:**
+```text
+accept: application/json
+content-type: application/json
+x-client-id: <a guid, provided specially for you>
+x-signature: <a HMAC signature you get using `HMAC secret`, provided specially for you>
+```
+**Body:**
+
+SDA courier:
+```js
+{
+	"trackingNumber": "",
+	"commentForCourier": "",
+
+	"action": "", //Possible Values: 1|3|4|5. Meanings: 1 - ReturnTheSameAddress, 3 - BackToTheSender, 4 - StationaryStorage, 5 - ReturnToOtherAddress
+	"newAddress": "",
+}
+```
+
+GLS IT courier:
+```js
+{
+	"trackingNumber": "",
+	"commentForCourier": "",
+
+	"solveCode": "", //Possible Values 1|2|3|7. Meanings: 1 - RedeliveryToTheSameAddress, 2- RedeliveryToOtherAddress, 3 - ReturnToSender, 7 - CustomerPickUp
+
+	"redeliveryDate": "", //YYYY-MM-DD, required if solveCode = 1
+	"redeliveryHourFrom": "", //HH:MM, required if solveCode = 1
+	"redeliveryHourTo": "", //HH:MM, required if solveCode = 1
+
+	"newAddress": "", // required if solveCode = 2
+	"destPostalCode": "", // required if solveCode = 2
+	"destCity": "", // required if solveCode =  2
+	"destAreaCode": "", // required if solveCode = 2
+	"destPhone": "", // required if solveCode = 2
+}
+```
+
+Other courier:
+```js
+{
+	"trackingNumber": "",
+	"commentForCourier": "",
+}
+```
+
+
 # Cancel An Order
 To cancel the order you should send the request to the:
 
