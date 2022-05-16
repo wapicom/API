@@ -9,23 +9,23 @@ In this document you will find the technical information regarding API work and 
 
 [Creating a new outbound request](https://github.com/wapicom/API/blob/main/README.md#creating-a-new-outbound-request)
 
-[Preferred Delivery Date and Time parameters](https://github.com/wapicom/API/blob/main/README.md#preferred-delivery-date-and-time-parameters)
+[Preferred delivery date and time parameters](https://github.com/wapicom/API/blob/main/README.md#preferred-delivery-date-and-time-parameters)
 
 [Order to Inpost packomat](https://github.com/wapicom/API/blob/main/README.md#order-to-inpost-packomat)
 
 [Tracking orders](https://github.com/wapicom/API/blob/main/README.md#tracking-orders)
 
-[Get Detailed Order Status](https://github.com/wapicom/API/blob/main/README.md#get-detailed-order-status)
+[Get detailed order status](https://github.com/wapicom/API/blob/main/README.md#get-detailed-order-status)
 
-[Getting Product's Remained Amount](https://github.com/wapicom/API/blob/main/README.md#getting-products-remained-amount)
+[Getting product's remained amount](https://github.com/wapicom/API/blob/main/README.md#getting-products-remained-amount)
 
-[Getting Product Remainded Amount v.2](https://github.com/wapicom/API/blob/main/README.md#getting-product-remainded-amount-v2)
+[Getting product remainded amount v.2](https://github.com/wapicom/API/blob/main/README.md#getting-product-remainded-amount-v2)
 
-[Update An Order](https://github.com/wapicom/API/blob/main/README.md#update-an-order)
+[Update an order](https://github.com/wapicom/API/blob/main/README.md#update-an-order)
 
 [Add a comment for a courier](https://github.com/wapicom/API/blob/main/README.md#add-a-comment-for-a-courier)
 
-[Cancel An Order](https://github.com/wapicom/API/blob/main/README.md#cancel-an-order)
+[Cancel an order](https://github.com/wapicom/API/blob/main/README.md#cancel-an-order)
 
 
 ## API access
@@ -163,7 +163,7 @@ Signature or request data is not valid
     "Error": "<SOME ERROR DESCRIPTION>"
 }
 ```
-## Preferred Delivery Date and Time parameters
+## Preferred delivery date and time parameters
 In the Create Order request now can be indicated the preferred Delivery Date and Time in the following format:
  
 
@@ -289,7 +289,7 @@ The same belongs to line endings and tab spaces in a payload.
 
 
 
-##  Get Detailed Order Status
+##  Get detailed order status
  
 To track the order you should know the tracking (WH) number of the order and should send the below mentioned API request:
 
@@ -403,7 +403,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 The trouble status is tied to a specific status in the status history. This should make it possible to see both the status change or its repetition, and to calculate the delivery attempt.
 
 
-## Getting Product's Remained Amount
+## Getting product's remained amount
 This operation allows you to get the stock remainders of the concrete product, or on the selected warehouse, or country. 
 > `POST /stock/getProductRemainder`
 
@@ -451,7 +451,7 @@ _Any status except 200 OK should be considered as an error_
 }
 ```
 
-## Getting Product Remainded Amount v.2
+## Getting product remainded amount v.2
 This changed version of getting remainder request helps client to obtain detailed information regarding his remained goods amount. You can find out what is the remaining on the warehouse quantity, what amount of goods is reserved, what is available at the moment, what amount is in transit right now and what amount is returning to the warehouse.
 The second version of the API for getting remained amount is accessible via:
 
@@ -488,7 +488,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 }
 ```
 
-## Update An Order
+## Update an order
 To change order's data you should send the request to the:
 
 > `POST /outbounds/UpdateOrder`
@@ -634,7 +634,7 @@ Other courier:
 ```
 
 
-## Cancel An Order
+## Cancel an order
 To cancel the order you should send the request to the:
 
 > `POST /outbounds/cancelOrder`
