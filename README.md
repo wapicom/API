@@ -2,20 +2,31 @@
 
 Warehouse API is a service that provides easy and understandable working with warehouses and courier services throughout the Europe.
 
-In this document you will find the technical information regarding API work and methods.
+In this document you will find the technical information regarding API work and methods:
 
 
 [API access](https://github.com/wapicom/API/blob/main/README.md#api-access)
+
 [Creating a new outbound request](https://github.com/wapicom/API/blob/main/README.md#creating-a-new-outbound-request)
+
 [Preferred Delivery Date and Time parameters](https://github.com/wapicom/API/blob/main/README.md#preferred-delivery-date-and-time-parameters)
+
 [Order to Inpost packomat](https://github.com/wapicom/API/blob/main/README.md#order-to-inpost-packomat)
+
 [Tracking orders](https://github.com/wapicom/API/blob/main/README.md#tracking-orders)
+
 [Get Detailed Order Status](https://github.com/wapicom/API/blob/main/README.md#get-detailed-order-status)
+
 [Getting Product's Remained Amount](https://github.com/wapicom/API/blob/main/README.md#getting-products-remained-amount)
+
 [Getting Product Remainded Amount v.2](https://github.com/wapicom/API/blob/main/README.md#getting-product-remainded-amount-v2)
+
 [Update An Order](https://github.com/wapicom/API/blob/main/README.md#update-an-order)
-[Add a comment for a courier]()
-[]()
+
+[Add a comment for a courier](https://github.com/wapicom/API/blob/main/README.md#add-a-comment-for-a-courier)
+
+[Cancel An Order](https://github.com/wapicom/API/blob/main/README.md#cancel-an-order)
+
 
 ## API access
 API base URLs are: 
