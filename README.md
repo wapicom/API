@@ -24,7 +24,7 @@ Virtual products for test requests must be "Demo Product-1" and "Demo Product-2"
 - Hash key (e.g. HMAC secret) will be provided personally
 - A **signature** should be indicated in the `x-signature` HTTP header
 
-# Creating a new outbound request
+## Creating a new outbound request
 To create a new request (order) you need following details:
 
 >`POST /outbounds`
@@ -265,7 +265,7 @@ The same belongs to line endings and tab spaces in a payload.
 
 
 
- ##  Get Detailed Order Status
+##  Get Detailed Order Status
  
 To track the order you should know the tracking (WH) number of the order and should send the below mentioned API request:
 
@@ -379,7 +379,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 The trouble status is tied to a specific status in the status history. This should make it possible to see both the status change or its repetition, and to calculate the delivery attempt.
 
 
-# Getting Product's Remained Amount
+## Getting Product's Remained Amount
 This operation allows you to get the stock remainders of the concrete product, or on the selected warehouse, or country. 
 > `POST /stock/getProductRemainder`
 
@@ -426,7 +426,8 @@ _Any status except 200 OK should be considered as an error_
     "Error": "<SOME ERROR DESCRIPTION>"
 }
 ```
-# Getting Product Remainded Amount v.2
+
+## Getting Product Remainded Amount v.2
 This changed version of getting remainder request helps client to obtain detailed information regarding his remained goods amount. You can find out what is the remaining on the warehouse quantity, what amount of goods is reserved, what is available at the moment, what amount is in transit right now and what amount is returning to the warehouse.
 The second version of the API for getting remained amount is accessible via:
 
@@ -462,7 +463,8 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
     "returningQuantity":0 
 }
 ```
-# Update An Order
+
+## Update An Order
 To change order's data you should send the request to the:
 
 > `POST /outbounds/UpdateOrder`
@@ -552,7 +554,7 @@ If in the change request were sent the same data as order has had initially, you
 ```
 
 
-# Add a comment for the courier
+## Add a comment for the courier
 for sending a comment for the courier you should send the request to the:
 
 > `POST /courier/addComment `
@@ -608,7 +610,7 @@ Other courier:
 ```
 
 
-# Cancel An Order
+## Cancel An Order
 To cancel the order you should send the request to the:
 
 > `POST /outbounds/cancelOrder`
