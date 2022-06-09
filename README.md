@@ -106,7 +106,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
     "comment":"some text",
     "whCode":"ITWH6",
     "whCodeAsMandatory":"true",
-    "courierService": "SDA"
+    "courierService": "SDA",
     "ReasonForExport":"sale",
     "DiscountFlatAmount":0.00,
     "ShippingFlatAmount":0.00,
