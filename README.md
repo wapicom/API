@@ -31,7 +31,7 @@ In this document you will find the technical information regarding API work and 
 ## API access
 API base URLs are: 
 
->Test environment: `http://warehouse-api-web-test.azurewebsites.net/`
+>Test environment: `http://warehouse-api-test.azurewebsites.net/api`
 
 >Production environment: `https://warehouse-api.azurewebsites.net/api`
 
