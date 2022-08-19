@@ -295,7 +295,7 @@ The same belongs to line endings and tab spaces in a payload.
  
 To track the order you should know the tracking (WH) number of the order and should send the below mentioned API request:
 
-> `POST /getDetailedOrderStatus`
+> `POST /tracking/getDetailedOrderStatus`
 
 **Headers:**
 ```text
