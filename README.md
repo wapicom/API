@@ -654,6 +654,8 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 ```js
 {  
     "trackingNumber":"WH0000XXXXXX",  // Enter here the tracking number of the order you want to cancel
+    "orderNumber": "XX0011", // 
+    "sourceOrderId": "1212121212",
     "comment":"test order"
 }
 ```
