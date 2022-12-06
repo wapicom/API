@@ -641,7 +641,9 @@ To cancel the order you should send the request to the:
 
 > `POST /outbounds/cancelOrder`
 
-You can only cancel an order if it is in the "Pending" status. The order is sent to the warehouse system 1 time in half an hour (at :00 and at :30). At this moment, the order status changes from "Pending" to "Assigned to partner". So, you need to keep in mind that there may not be enough time to cancel the order. Therefore, in situations where you know that a test order will need to be canceled, it is better to send it at time intervals far from :00 and :30.
+You can cancel an order if it is in the "Pending" status. The order is sent to the warehouse system 1 time in half an hour (at :00 and at :30). At this moment, the order status changes from "Pending" to "Assigned to partner". So, you need to keep in mind that there may not be enough time to cancel the order. Therefore, in situations where you know that a test order will need to be canceled, it is better to send it at time intervals far from :00 and :30.
+
+ For some special cases it is possible to cancel order in the "AssignedToPartner" status. Please contact your manager for details
 
 **Headers:**
 ```text
@@ -654,8 +656,8 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 ```js
 {  
     "trackingNumber":"WH0000XXXXXX",  // Enter here the tracking number of the order you want to cancel
-    "orderNumber": "XX0011", // 
-    "sourceOrderId": "1212121212",
+    "orderNumber": "XX0011", // Order number from your ERP system
+    "sourceOrderId": "1212121212", // order Id from a platform where order is originated
     "comment":"test order"
 }
 ```
