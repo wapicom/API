@@ -11,7 +11,7 @@ In this document you will find the technical information regarding API work and 
 
 [Preferred delivery date and time parameters](https://github.com/wapicom/API/blob/main/README.md#preferred-delivery-date-and-time-parameters)
 
-[Order to Inpost](https://github.com/wapicom/API/blob/main/README.md#order-to-inpost-packomat)
+[Order to Inpost](https://github.com/wapicom/API/blob/main/README.md#order-to-inpost)
 
 [Tracking orders](https://github.com/wapicom/API/blob/main/README.md#tracking-orders)
 
