@@ -11,7 +11,7 @@ In this document you will find the technical information regarding API work and 
 
 [Preferred delivery date and time parameters](https://github.com/wapicom/API/blob/main/README.md#preferred-delivery-date-and-time-parameters)
 
-[Order to Inpost packomat](https://github.com/wapicom/API/blob/main/README.md#order-to-inpost-packomat)
+[Order to Inpost](https://github.com/wapicom/API/blob/main/README.md#order-to-inpost-packomat)
 
 [Tracking orders](https://github.com/wapicom/API/blob/main/README.md#tracking-orders)
 
@@ -186,7 +186,7 @@ In the Create Order request now can be indicated the preferred Delivery Date and
 
 ## Order to Inpost
 
-To indicate that the order should be delivered by DPD carrier, the fields in the request should be specified as follows:
+To indicate that the order should be delivered by DPD carrier from Inpost warehouse, the fields in the request should be specified as follows:
 ```
 {
 ....
@@ -196,7 +196,7 @@ To indicate that the order should be delivered by DPD carrier, the fields in the
 ```
 
 
-To indicate that the order should be delivered by Inpost Packomat carrier and arrive at a specific packomat, the fields in the request should be specified as follows:
+To indicate that the order should be delivered by Inpost Packomat carrier from Inpost warehouse and arrive at a specific packomat, the fields in the request should be specified as follows:
 ```
 {
 ...
