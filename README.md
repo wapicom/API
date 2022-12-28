@@ -226,7 +226,7 @@ To indicate that the order should be delivered by DPD carrier from Inpost wareho
     }
 ...
 }
-
+```
 
 To indicate that the order should be delivered by Inpost Packomat carrier from Inpost warehouse and arrive at a specific packomat, the fields in the request should be specified as follows:
 ```
