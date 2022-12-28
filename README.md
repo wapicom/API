@@ -207,7 +207,7 @@ To indicate that the order should be delivered by DPD carrier from Inpost wareho
 }
 ```
 
-To indicate that the order should be delivered by DPD carrier from Inpost warehouse to a DPD point, the fields in the request should be specified as follows:
+To indicate that the order should be delivered by DPD carrier from Inpost warehouse to a DPD point (Poland), the fields in the request should be specified as follows:
 ```
 {
 ...
