@@ -186,14 +186,46 @@ In the Create Order request now can be indicated the preferred Delivery Date and
 
 ## Order to Inpost
 
-To indicate that the order should be delivered by DPD carrier from Inpost warehouse, the fields in the request should be specified as follows:
+Orders to Inpost must have a receiver's email.
+
+To indicate that the order should be delivered by DPD carrier from Inpost warehouse to a customer's address, the fields in the request should be specified as follows:
 ```
 {
 ....
 "courierService": "DPD PL",
 ....
+"receiver":
+    { 
+           ...
+          "addressText":"Customer's address must be specified here",
+	  "city":"City name",
+	  "country":"PL",
+	  "zipCode":"XXXXX",
+           ...
+    }
+...
 }
 ```
+
+To indicate that the order should be delivered by DPD carrier from Inpost warehouse to a DPD point, the fields in the request should be specified as follows:
+```
+{
+...
+"isSelfCollect": true,
+"courierService": "DPD PL",
+"selfCollectPointName": "DPD point code must be specified here",
+...
+"receiver":
+    { 
+           ...
+          "addressText":"DPD point's address must be specified here",
+	  "city":"City name",
+	  "country":"PL",
+	  "zipCode":"Zipcode of the DPD point",
+           ...
+    }
+...
+}
 
 
 To indicate that the order should be delivered by Inpost Packomat carrier from Inpost warehouse and arrive at a specific packomat, the fields in the request should be specified as follows:
@@ -201,12 +233,15 @@ To indicate that the order should be delivered by Inpost Packomat carrier from I
 {
 ...
 "isSelfCollect": true,
-"selfCollectPointName": "Packomat code must be specified here"
+"selfCollectPointName": "Packomat code must be specified here",
 ...
 "receiver":
     { 
            ...
           "addressText":"Packomat address must be specified here",
+	  "city":"City name",
+	  "country":"PL",
+	  "zipCode":"Zipcode of the Inpost Packomat",
            ...
     }
 ...
