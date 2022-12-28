@@ -200,7 +200,7 @@ To indicate that the order should be delivered by DPD carrier from Inpost wareho
           "addressText":"Customer's address must be specified here",
 	  "city":"City name",
 	  "country":"PL",
-	  "zipCode":"XXXXX",
+	  "zipCode":"Zipcode of the customer",
            ...
     }
 ...
@@ -233,12 +233,12 @@ To indicate that the order should be delivered by Inpost Packomat carrier from I
 {
 ...
 "isSelfCollect": true,
-"selfCollectPointName": "Packomat code must be specified here",
+"selfCollectPointName": "Inpost Packomat code must be specified here",
 ...
 "receiver":
     { 
            ...
-          "addressText":"Packomat address must be specified here",
+          "addressText":"Inpost Packomat address must be specified here",
 	  "city":"City name",
 	  "country":"PL",
 	  "zipCode":"Zipcode of the Inpost Packomat",
