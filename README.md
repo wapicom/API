@@ -186,7 +186,7 @@ In the Create Order request now can be indicated the preferred Delivery Date and
 
 ## Order to Inpost
 
-Important! Before sending orders using methods below, please check with WAPI IT department. For each seller, we need to configure the configuration on our side.
+Important! Before sending orders using methods below, please check with WAPI IT department. For each seller, we need to additionally perform some settings on our side.
 
 To indicate that the order should be delivered by DPD carrier from Inpost warehouse to a customer's address, the fields in the request should be specified as follows:
 ```
