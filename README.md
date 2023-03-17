@@ -186,7 +186,7 @@ In the Create Order request now can be indicated the preferred Delivery Date and
 
 ## Order to Inpost
 
-Orders to Inpost must have a receiver's email.
+Important! Before sending orders using methods below, please check with WAPI IT department. For each seller, we need to configure the configuration on our side.
 
 To indicate that the order should be delivered by DPD carrier from Inpost warehouse to a customer's address, the fields in the request should be specified as follows:
 ```
@@ -242,6 +242,29 @@ To indicate that the order should be delivered by Inpost Packomat carrier from I
 	  "city":"City name",
 	  "country":"PL",
 	  "zipCode":"Zipcode of the Inpost Packomat",
+           ...
+    }
+...
+}
+```
+
+Orders to Inpost Packomat must have a receiver's email.
+
+To indicate that the order should be delivered by Inpost carrier from Inpost warehouse to a customer's address, the fields in the request should be specified as follows:
+```
+{
+...
+"courierService": "Inpost",
+"whCode":"PLWH1",
+"whCodeAsMandatory":"true",
+...
+"receiver":
+    { 
+           ...
+          "addressText":"Customer's address must be specified here",
+	  "city":"City name",
+	  "country":"PL",
+	  "zipCode":"Zipcode of the customer",
            ...
     }
 ...
