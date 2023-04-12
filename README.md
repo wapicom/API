@@ -1,8 +1,18 @@
 # **The API**
 
-Warehouse API is a service that provides easy and understandable working with warehouses and courier services throughout the Europe.
+Warehouse API is a service that provides easy and understandable working with warehouses and courier services throughout the Europe. 
 
-In this document you will find the technical information regarding API work and methods:
+How the process works: 
+
+you send an order via API to the WAPI system
+the order gets into the WAPI system (if there are no errors, lack of leftovers, etc.)
+the WAPI system sends the order to the warehouse system
+the warehouse picks and packs the parcel and passes the parcel to the courier
+the parcel goes to the final customer
+
+Each of these stages is marked with a certain status (Pending >> Assigned to Partner >> Dispatched >> In Transit >> Delivered / Returning>Returned), which you can both get from the API and see in the interface of the WAPI system.
+
+In this document you will find the technical information regarding API work and methods. If you have any questions, feel free to ask your manager or WAPI IT support. Also you can use our [FAQ](https://support.wapi.com/) (available after getting an access to the system). 
 
 
 [API access](https://github.com/wapicom/API/blob/main/README.md#api-access)
@@ -36,11 +46,11 @@ API base URLs are:
 >Production environment: `https://warehouse-api.azurewebsites.net/api`
 
 The endpoint is protected by the **authentication token**. The personalizes token is provided to each client via 
-`x-client-id` HTTP header. Production and test environments has different tokens and hash keys. 
-
-Also a login and password for the test and production environment required. They are different for test and production environments.
+`x-client-id` HTTP header. Production and test environments has different tokens and hash keys. Also a login and password for the test and production environment required. They are different for test and production environments. Please ask WAPI It team for credentials.
 
 Virtual products for test requests must be "Demo Product-1" and "Demo Product-2". Also it is important to indicate in the request the country of delivery "ES" or "IT". 
+
+Link to the production user interface: https://my.wapi.com (please ask WAPI IT team for an access).
 
 
 ### Message signing
@@ -124,16 +134,16 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 ```
  **Important!**
 
-- For prepaid orders fill following fields `product.price`, `cashOnDelivery` and `additionalProducts.price` with `0` 
-- All fields are required, except `additionalProducts`, `receiver.lastName`, `receiver.emailAddress`, `receiver.houseNumber`, `receiver.nationalID`, `whCode`, `whCodeAsMandatory`, `courierService`,`ReasonForExport`, `DiscountFlatAmount`, `ShippingFlatAmount`, `TaxFlatAmount`, `CurrencyForInvoice`, `checkBeforeCOD`.
-- `cashOnDelivery` field is added later with purpose to override calculations of COD, based on `price` field of products. That is, when COD amount is specified in `cashOnDelivery` field and **is greater then zero**, amounts in `price` are ignored.   
+- For prepaid orders fill in the following fields `product.price`, `cashOnDelivery` and `additionalProducts.price` with `0` 
+- All fields are required, except `additionalProducts`, `receiver.lastName`, `receiver.emailAddress`, `receiver.houseNumber`, `receiver.nationalID`, `comment`, `whCode`, `whCodeAsMandatory`, `courierService`,`ReasonForExport`, `DiscountFlatAmount`, `ShippingFlatAmount`, `TaxFlatAmount`, `CurrencyForInvoice`, `checkBeforeCOD`, `attachments`
+- `cashOnDelivery` field is added after price and unitPriceForInvoice fields with the purpose to override calculations of COD. That is, when COD amount is specified in `cashOnDelivery` field and **is greater than zero**, amounts in `price` and `unitPriceForInvoice` are ignored.   
 - `additionalProducts` field is optional. When you need to send more than one product, first product you need to pass via `product` node and other products in `additionalProducts` array.
-- `nationalID` field is used to be included in invoices, which are required in some cases (e.g. sending orders to Spanish islands).
-- `whCode` field is optional. If this parameter is passed, then the system will try to send the order to this warehouse. But if there are no leftovers, then to the one where there is.
-- `whCodeAsMandatory` field is connected with `whCode` field. This parameter must be set to true if the order should be sent only from the warehouse specified in the `whCode` parameter. If `whCodeAsMandatory` = False, then the system will try to send an order from another warehouse if there is no item in the warehouse specified in `whCode`.
-- `courierService` field should be specified only in special cases (should be discussed with WAPI IT team)
-- `checkBeforeCOD` field is optional and should be passed only for orders to Bulgaria. This parameter is passed when the package needs to be opened before the client will pay for it.
-- `attachments` field can take the following values: CustomsInvoice - invoice to the customs zone; DeliveryNote - just a document describing what is contained in the order or and some additional instructions, for example, such as instructions for returning; Invoice - invoice for the buyer
+- `nationalID`, `ReasonForExport`, `DiscountFlatAmount`, `ShippingFlatAmount`, `TaxFlatAmount`, `CurrencyForInvoice` fields are used to be included in invoices, which are required in some cases (e.g. sending orders to Spanish islands or customs zone).
+- `whCode` field is optional. If this parameter is passed, then the system will try to send the order to this warehouse. But if there are no leftovers, then to the one where there are leftovers.
+- `whCodeAsMandatory` field is connected with `whCode` field. This parameter must be set as true if the order should be sent only from the warehouse specified in the `whCode` parameter. If `whCodeAsMandatory` = False, then the system will try to send an order from another warehouse if there is no item in the warehouse specified in `whCode`.
+- `courierService` field should be specified only in special cases (should be discussed with WAPI IT team).
+- `checkBeforeCOD` field is optional and should be passed only for orders to Bulgaria. This parameter is passed when the package needs to be opened before the client will pay for it. Needs to be discussed with your manager.
+- `attachments` field can take the following values: CustomsInvoice - invoice to the customs zone; DeliveryNote - just a document describing what is contained in the order or and some additional instructions, for example, such as instructions for returning; Invoice - invoice for the buyer.
 
 **Response:**
  
