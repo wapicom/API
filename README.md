@@ -15,6 +15,7 @@ Each of these stages is marked with a certain status (Pending >> Assigned to Par
 In this document you will find the technical information regarding API work and methods. If you have any questions, feel free to ask your manager or WAPI IT support. Also you can use our [FAQ](https://support.wapi.com/) (available after getting an access to the system). 
 
 
+
 [API access](https://github.com/wapicom/API/blob/main/README.md#api-access)
 
 [Creating a new outbound request](https://github.com/wapicom/API/blob/main/README.md#creating-a-new-outbound-request)
