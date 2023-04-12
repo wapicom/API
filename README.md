@@ -4,11 +4,11 @@ Warehouse API is a service that provides easy and understandable working with wa
 
 How the process works: 
 
-  you send an order via API to the WAPI system
-  the order gets into the WAPI system (if there are no errors, lack of leftovers, etc.)
-  the WAPI system sends the order to the warehouse system
-  the warehouse picks and packs the parcel and passes the parcel to the courier
-  the parcel goes to the final customer
+* you send an order via API to the WAPI system
+* the order gets into the WAPI system (if there are no errors, lack of leftovers, etc.)
+* the WAPI system sends the order to the warehouse system
+* the warehouse picks and packs the parcel and passes the parcel to the courier
+* the parcel goes to the final customer
 
 Each of these stages is marked with a certain status (Pending >> Assigned to Partner >> Dispatched >> In Transit >> Delivered / Returning>Returned), which you can both get from the API and see in the interface of the WAPI system.
 
