@@ -51,7 +51,7 @@ The endpoint is protected by the **authentication token**. The personalizes toke
 
 Virtual products for test requests must be "Demo Product-1" and "Demo Product-2". Also it is important to indicate in the request the country of delivery "ES" or "IT". 
 
-Link to the production user interface: https://my.wapi.com (please ask WAPI IT team for an access).
+Link to the production user interface: https://my.wapi.com (please ask your manager for an access).
 
 
 ### Message signing
