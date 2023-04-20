@@ -549,7 +549,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 ```
 **Body:**
 ```json 
-{"country":"Italy", "productName": "Demo Product-1"}
+{"country":"Italy", "productName": "Demo Product-1", "warehouseName":"ITWH2"}
 ```
  
 **Response:**
@@ -559,7 +559,7 @@ x-signature: <a HMAC signature you get using `HMAC secret`, provided specially f
 ```json
 {
     "country":"Italy",
-    "warehouseName" :"ITWH1",
+    "warehouseName" :"ITWH2",
     "productName":"Demo Product-1",
     "remainingQuantity":0,
     "reservedQuantity":0,
